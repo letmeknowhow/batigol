@@ -8,10 +8,39 @@
 
 const path = require('path');
 const fs = require('fs');
-const rekitCore = require('rekitCore');
 const ArgumentParser = require('argparse').ArgumentParser;
-const rekitPkgJson = require('../package.json');
+const rekitPkgJson = require('./package.json');
 const createApp = require('./createApp');
+// const createPlugin = require('./createPlugin');
+// const installPlugin = require('./installPlugin');
+
+// If runs under a project
+function getLocalRekitCore() {
+  let cwd = process.cwd();
+  let lastDir = null;
+  let prjRoot = null;
+  // Traverse above until find the package.json.
+  while (cwd && lastDir !== cwd) {
+    if (fs.existsSync(path.join(cwd, 'package.json'))) {
+      prjRoot = cwd;
+      break;
+    }
+    lastDir = cwd;
+    cwd = path.join(cwd, '..');
+  }
+
+  const pkgJson = prjRoot ? path.join(prjRoot, 'package.json') : null;
+  if (!prjRoot || !fs.existsSync(pkgJson)) return null;
+  else {
+    const pj = require(pkgJson);
+    if (!(pj.devDependencies && pj.devDependencies['rekit-core'] || pj.dependencies && pj.dependencies['rekit-core'])) {
+      return null;
+    }
+  }
+  return require('rekit-core');
+}
+
+const rekitCore = getLocalRekitCore();
 
 const parser = new ArgumentParser({
   version: rekitPkgJson.version,
@@ -51,6 +80,35 @@ createCmd.addArgument(['--template', '-t'], {
   help: 'Which template to use for creating a project. Clone from "https://github.com/supnate/rekit-boilerplate-${template} Default to cra (create-react-app). If it\'s rekit. Then use supnate/rekit-boilerplate.',
   defaultValue: 'cra',
 });
+
+const createPluginCmd = subparsers.addParser('create-plugin', {
+  addHelp: true,
+  description: 'Create a Rekit plugin. If under a Rekit project, create a local plugin; otherwise create a plugin as a npm package.',
+});
+
+createPluginCmd.addArgument('name', {
+  help: 'The plugin name',
+});
+
+// Install plugin command
+const installPluginCmd = subparsers.addParser('install', {
+  addHelp: true,
+  description: 'Install a Rekit plugin.',
+});
+
+installPluginCmd.addArgument('name', {
+  help: 'The plugin name',
+});
+
+// Uninstall plugin command
+// const uninstallPluginCmd = subparsers.addParser('uninstall', {
+//   addHelp: true,
+//   description: 'Uninstall a Rekit plugin.',
+// });
+
+// uninstallPluginCmd.addArgument('name', {
+//   help: 'The plugin name',
+// });
 
 // Add sub-command
 const addCmd = subparsers.addParser('add',
@@ -142,6 +200,15 @@ switch (args.commandName) {
   case 'create':
     // Only create command is handled rekit
     createApp(args);
+    break;
+  case 'create-plugin':
+    // createPlugin(args, rekitCore);
+    console.timeEnd('😃  Done'); // create command doesn't need time end.
+    break;
+  case 'install':
+    // installPlugin(args, rekitCore);
+    break;
+  case 'uninstall':
     break;
   default:
     // Other command are handled by rekit-core

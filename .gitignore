@@ -14,3 +14,4 @@ _book
 .tmp
 .DS_Store
 Thumbs.db
+.vscode
