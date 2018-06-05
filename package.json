@@ -1,0 +1,24 @@
+{
+  "name": "batigol",
+  "version": "1.0.0",
+  "description": "for creating a react app",
+  "main": "index.js",
+  "bin": {
+    "batigol": "./index.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "react",
+    "rekit",
+    "create-react-app"
+  ],
+  "author": "icecream",
+  "license": "MIT",
+  "dependencies": {
+    "argparse": "^1.0.7",
+    "download-git-repo": "^1.0.2",
+    "rekit-core": "^2.3.3"
+  }
+}
