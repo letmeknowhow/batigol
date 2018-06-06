@@ -30,7 +30,8 @@ function createApp(args) {
   fs.mkdirSync(prjPath);
 
   // Download boilerplate from: https://github.com/supnate/rekit-boilerplate-xxx dist branch.
-  const tplRepo = args.template === 'rekit' ? `supnate/rekit-boilerplate#dist` : `supnate/rekit-boilerplate-${args.template}#dist`;
+  // const tplRepo = args.template === 'rekit' ? `supnate/rekit-boilerplate#dist` : `supnate/rekit-boilerplate-${args.template}#dist`;
+  const tplRepo = 'letmeknowhow/react-app-starter';
   console.log(`Downloading boilerplate from https://github.com/${tplRepo}...`);
   download(tplRepo, prjPath, (err) => {
     if (err) {

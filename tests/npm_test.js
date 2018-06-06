@@ -37,7 +37,7 @@ function exec(cmd, opts) {
   expect(shell.exec(cmd, opts || {}).code).to.equal(0, 'Command failed, exit code should be 0');
 }
 
-const appName = 'a-rekit-npm-test-app';
+const appName = 'a-batigol-npm-test-app';
 const prjRoot = path.join(__dirname, '..');
 const appRoot = path.join(prjRoot, '../', appName);
 const appPkgJsonPath = path.join(appRoot, 'package.json');
@@ -54,18 +54,18 @@ exec(`npm install -g ${prjRoot}`);
 console.log('Create a new Rekit app...');
 exec(`batigol create ${appName}`, { cwd: path.join(prjRoot, '..') });
 
-const pkg = require(appPkgJsonPath); // eslint-disable-line
-console.log('Use local rekit core optionally');
-if (args.local_core) {
-  pkg.devDependencies['rekit-core'] = path.join(prjRoot, '../rekit-core');
-  shell.ShellString(JSON.stringify(pkg)).to(appPkgJsonPath);
-}
+// const pkg = require(appPkgJsonPath); // eslint-disable-line
+// console.log('Use local rekit core optionally');
+// if (args.local_core) {
+//   pkg.devDependencies['rekit-core'] = path.join(prjRoot, '../rekit-core');
+//   shell.ShellString(JSON.stringify(pkg)).to(appPkgJsonPath);
+// }
 
-console.log('Use local rekit portal optionally');
-if (args.local_portal) {
-  pkg.devDependencies['rekit-portal'] = path.join(prjRoot, '../rekit-portal');
-  shell.ShellString(JSON.stringify(pkg)).to(appPkgJsonPath);
-}
+// console.log('Use local rekit portal optionally');
+// if (args.local_portal) {
+//   pkg.devDependencies['rekit-portal'] = path.join(prjRoot, '../rekit-portal');
+//   shell.ShellString(JSON.stringify(pkg)).to(appPkgJsonPath);
+// }
 
 // console.log('Install deps for the app...');
 // exec('yarn', { cwd: appRoot });
