@@ -1,6 +1,6 @@
 {
   "name": "batigol",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "for creating a react app",
   "bin": {
     "batigol": "./bin/batigol.js"
@@ -17,6 +17,10 @@
     "react",
     "create-react-app"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/letmeknowhow/batigol.git"
+  },
   "author": "icecream",
   "license": "MIT",
   "dependencies": {
