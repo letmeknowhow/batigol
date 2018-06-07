@@ -30,7 +30,7 @@ function getLocalRekitCore() {
       return null;
     }
   }
-  return require('rekit-core');
+  return require('./core');
 }
 
 const rekitCore = getLocalRekitCore();
