@@ -5,7 +5,7 @@ const path = require('path');
 const fs = require('fs');
 const ArgumentParser = require('argparse').ArgumentParser;
 const rekitPkgJson = require('../package.json');
-const createApp = require('./createApp');
+const createApp = require('batigol-create');
 
 const parser = new ArgumentParser({
   version: rekitPkgJson.version,
