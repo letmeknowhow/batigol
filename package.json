@@ -21,30 +21,11 @@
   "license": "MIT",
   "dependencies": {
     "argparse": "^1.0.7",
-    "download-git-repo": "^1.0.2",
-    "babel-generator": "^6.23.0",
-    "babel-traverse": "^6.23.1",
-    "babel-types": "^6.23.0",
-    "babylon": "^6.15.0",
-    "colors": "^1.1.2",
-    "diff": "^3.2.0",
-    "docdash": "^0.4.0",
-    "eslint-config-airbnb-base": "^12.1.0",
-    "eslint-plugin-import": "^2.2.0",
-    "lodash": "^4.17.4",
-    "minami": "^1.1.1",
-    "npm-run": "^4.1.0",
-    "prettier": "^1.12.1",
-    "shelljs": "^0.8.0",
-    "trash": "^4.2.1"
+    "download-git-repo": "^1.0.2"
   },
   "devDependencies": {
     "chai": "^4.1.2",
-    "codecov": "^3.0.0",
     "eslint": "^4.15.0",
-    "jsdoc": "^3.4.3",
-    "mocha": "^4.1.0",
-    "nyc": "^11.4.1",
     "shelljs": "^0.8.0"
   }
 }

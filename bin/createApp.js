@@ -38,7 +38,7 @@ function createApp(args) {
       // Modify package.json
       const appPkgJson = require(path.join(prjPath, 'package.json')); // eslint-disable-line
       appPkgJson.name = prjName;
-      appPkgJson.description = `${prjName} created by Rekit.`;
+      appPkgJson.description = `${prjName} created by BatiGOL.`;
       fs.writeFileSync(path.join(prjPath, 'package.json'), JSON.stringify(appPkgJson, null, '  '));
 
       // Execute postCreate in the boilerplate, so that it could handle '--clean', '--sass' flags.
