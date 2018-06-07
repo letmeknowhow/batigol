@@ -2,16 +2,14 @@
   "name": "batigol",
   "version": "1.0.0",
   "description": "for creating a react app",
-  "main": "index.js",
   "bin": {
-    "batigol": "./index.js"
+    "batigol": "./bin/batigol.js"
   },
   "scripts": {
     "test:npm": "node ./tests/npm_test.js"
   },
   "keywords": [
     "react",
-    "rekit",
     "create-react-app"
   ],
   "author": "icecream",

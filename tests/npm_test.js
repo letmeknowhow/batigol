@@ -42,16 +42,16 @@ const prjRoot = path.join(__dirname, '..');
 const appRoot = path.join(prjRoot, '../', appName);
 const appPkgJsonPath = path.join(appRoot, 'package.json');
 
-console.log('Uninstalling Rekit globally......');
-exec('npm uninstall -g rekit');
+// console.log('Uninstalling batigol globally......');
+// exec('npm uninstall -g batigol');
 
-console.log('Unlinking Rekit......');
-exec('npm unlink', { cwd: prjRoot });
+// console.log('Unlinking batigol......');
+// exec('npm unlink', { cwd: prjRoot });
 
-console.log('Install Rekit globally from local folder...');
-exec(`npm install -g ${prjRoot}`);
+// console.log('Install batigol globally from local folder...');
+// exec(`npm install -g ${prjRoot}`);
 
-console.log('Create a new Rekit app...');
+console.log('Create a new batigol app...');
 exec(`batigol create ${appName}`, { cwd: path.join(prjRoot, '..') });
 
 // const pkg = require(appPkgJsonPath); // eslint-disable-line

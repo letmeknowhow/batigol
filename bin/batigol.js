@@ -4,10 +4,8 @@
 const path = require('path');
 const fs = require('fs');
 const ArgumentParser = require('argparse').ArgumentParser;
-const rekitPkgJson = require('./package.json');
+const rekitPkgJson = require('../package.json');
 const createApp = require('./createApp');
-// const createPlugin = require('./createPlugin');
-// const installPlugin = require('./installPlugin');
 
 // If runs under a project
 function getLocalRekitCore() {
@@ -99,7 +97,7 @@ addCmd.addArgument(['--async', '-a'], {
 
 if (rekitCore) {
   rekitCore.plugin.getPlugins(rekitCore).forEach((p) => {
-    if (p.config.defineArgs) p.config.defineArgs(addCmd, mvCmd, rmCmd);
+    if (p.config.defineArgs) p.config.defineArgs(addCmd);
   });
 }
 
@@ -119,6 +117,6 @@ switch (args.commandName) {
       process.exit(1);
     }
     rekitCore.handleCommand(args);
-    rekitCore.vio.flush();
+    // rekitCore.vio.flush();
     break;
 }
